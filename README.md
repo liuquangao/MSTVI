@@ -43,6 +43,3 @@ If you find this repo useful, please cite our paper
 ## Acknowledgement
 
 Our code is based on Time Series Library (TSLib)：https://github.com/thuml/Time-Series-Library
-
-# MSTVI
-# MSTVI
