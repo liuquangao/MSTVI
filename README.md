@@ -34,10 +34,13 @@ Or describe it in Issues.
 
 If you find this repo useful, please cite our paper
 ```
-@inproceedings{liu2024mstvi,
-  title={MSTVI: Multi-Scale Time-Variable Interaction for Multivariate Time Series Forecasting},
-  author={Quangao Liu and Ruiqi Li and Maowei Jiang and Wei Yang and Cheng Liang and Zhuozhang Zou},
-  year={2024},
+@article{liu2025mstvi,
+  title={Mstvi: Multi-scale Time-Variable Interaction for multivariate time series forecasting},
+  author={Liu, Quangao and Li, Ruiqi and Jiang, Maowei and Yang, Wei and Liang, Chen and Pang, Longlong and Zou, Zhuozhang},
+  journal={Knowledge-Based Systems},
+  pages={113551},
+  year={2025},
+  publisher={Elsevier}
 }
 ```
 ## Acknowledgement
