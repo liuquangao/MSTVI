@@ -23,7 +23,7 @@ bash scripts/long_term_forecast/MSTVI/traffic.sh
 
 ## Contact
 If you have any questions or suggestions, feel free to contact our maintenance team:
-- Quangao Liu (liuquangao@sia.cn)
+- Quangao Liu (liuquangao@exeter.ac.uk)
 - Ruiqi Li (liruiqi1@sia.cn)
 - Maowei Jiang (jiangmaowei@sia.cn)
 
