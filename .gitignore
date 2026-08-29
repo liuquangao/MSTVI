@@ -1,0 +1,9 @@
+.venv/
+dataset/
+__pycache__/
+*.py[cod]
+
+checkpoints/
+results/
+test_results/
+result_long_term_forecast.txt

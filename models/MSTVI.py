@@ -181,21 +181,21 @@ class Model(nn.Module):
         x = x.permute(0, 2, 1)  # x: [bsz, nvar, seq_len]
 
         down_x1 = self.embed_linear(x)  # x: [bsz, nvar, n1]
-        down_x1_, variance_loss1, ortho_loss1 = self.tvi1(down_x1)
+        down_x1_ = self.tvi1(down_x1)
 
         down_x2 = self.sample_linear1(down_x1_)  # x: [bsz, nvar, n2]
-        down_x2_, variance_loss2, ortho_loss2 = self.tvi2(down_x2)
+        down_x2_ = self.tvi2(down_x2)
 
         down_x3 = self.sample_linear2(down_x2_)  # x: [bsz, nvar, n2]
-        up_x3, variance_loss3, ortho_loss3 = self.tvi3(down_x3)
+        up_x3 = self.tvi3(down_x3)
 
         up_x2_ = self.upsample_linear2(up_x3) + self.down_linear1(down_x2_)
 
-        tvi4, variance_loss4, ortho_loss4 = self.tvi4(up_x2_)
+        tvi4 = self.tvi4(up_x2_)
         up_x2 = tvi4 + self.down_linear2(down_x2)
 
         up_x1_ = self.upsample_linear1(up_x2) + self.down_linear3(down_x1_)
-        tvi5, variance_loss5, ortho_loss5 = self.tvi5(up_x1_)
+        tvi5 = self.tvi5(up_x1_)
         up_x1 = tvi5 + self.down_linear4(down_x1)
 
         x = self.pred_linear(up_x1)  # x: [bsz, nvar, pred_len]
@@ -203,10 +203,7 @@ class Model(nn.Module):
 
         x = self.revin_layer(x, 'denorm')
 
-        # 总方差损失和正交性损失
-        variance_loss = variance_loss1 + variance_loss2 + variance_loss3 + variance_loss4 + variance_loss5
-        ortho_loss = ortho_loss1 + ortho_loss2 + ortho_loss3 + ortho_loss4 + ortho_loss5
-        return x, variance_loss, ortho_loss
+        return x
 
     ## TODO:待完善
     def imputation(self, x, x_mark_enc, x_dec, x_mark_dec, mask):
